@@ -15,5 +15,9 @@
         },
         "default_title": "二维码生成器",
         "default_popup": "qrcode.html"
+    },
+    "author": {
+        "name": "Rodey Luo",
+        "email": "rodeyluo@gmail.com"
     }
 }

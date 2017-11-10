@@ -113,8 +113,9 @@ div {
 
 #qrcode{
     display: inline-block;
-    width:150px; height:150px; margin-bottom:10px;background-color: #e2ecec;position: relative;
+    width:150px; height:150px;background-color: #e2ecec;position: relative;
     text-align: center;
+    overflow: hidden;
 }
 #qrcode img{
     -webkit-transition: all 0.2s;
@@ -131,13 +132,19 @@ div {
     padding: 8px;
     box-shadow: 0 0 3px 1px rgba(0,0,0,.25);
 }
+#qrcode:after{
+    content:"";
+    display: block;
+    clear: both;
+    zoom: 1;
+}
 .zoom-in{
     cursor: zoom-in;
 }
 .zoom-out{
     cursor: zoom-out;
 }
-.qrcode.init:after{
+.qrcode.init:before{
     content: "二维码生成区";
     width: 100%;
     height: 100%;
@@ -168,7 +175,7 @@ button:hover, button:active{
     background-color: #53c7bd;
 }
 ul{
-    margin-top: 10px;
+    margin-top: 20px;
     clear: both;
 }
 ul li{
