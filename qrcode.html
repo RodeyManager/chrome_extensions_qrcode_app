@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="form" style="display: none">
+    <p><input type="text" id="intro" placeholder="备注"></p>
+    <p><input type="text" id="text" placeholder="内容"></p>
+    <p><button id="add">添加</button><button id="close">取消</button></p>
+</div>
+<div id="qrcode" class="qrcode init"></div>
+<div class="cc">
+    <input type="text" id="remark" placeholder="备注可选">
+    <textarea name="content" id="content" placeholder="请输入内容"></textarea>
+    <div class="btns">
+        <button id="save">存储</button>
+        <button id="clean">清空</button>
+    </div>
+</div>
+<!--<div>
+    <div class="tools">
+        <a href="javascript:void(0)" id="sort"><img src="assets/images/sort-amount-asc.svg" width="24" alt=""></a>
+    </div>
+    <ul id="caches"></ul>
+</div>-->
+<ul id="caches"></ul>
+<div class="masker" style="display: none;"></div>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/qrcode.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

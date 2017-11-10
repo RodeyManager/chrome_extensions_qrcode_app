@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 10px;
+    width: 430px;
+    max-height: 500px;
+    min-height: 260px;
+    font-size: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+input::placeholder, textarea::placeholder{
+    color: #90aab7;
+}
+input:focus, textarea:focus{
+    box-shadow: inset 0 0 5px 1px rgba(195, 230, 227, 0.61);
+}
+
+textarea{
+    display: block;
+    width: 100%;
+    height: 87px;
+    border: 1px solid #a7b7b5;
+    resize: none;
+    outline: none;
+    padding: 2px;
+    box-sizing: border-box;
+    font: 12px Arial;
+}
+
+div {
+    margin: 0 auto;
+    line-height: 100px;
+    font-size: 42px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.cc{
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    width: 270px;
+}
+.btns{
+    display: flex;
+    width: 100%;
+}
+.btns button{
+    display: block;
+    flex: 1;
+    margin: 5px 0;
+    flex-direction: row;
+}
+.btns button:first-child{
+    margin-right: 5px;
+}
+.btns button:last-child{
+    margin-left: 5px;
+    background-color: #90aab7;
+}
+.form{
+    width: 100%;
+    margin: 0 auto 30px auto;
+    border-bottom: 1px solid #e2ecec;
+}
+.form p{
+    padding: 0;
+    margin: 5px 0;
+    line-height: 20px;
+}
+.form p:last-child{
+    display: flex;
+}
+.form p input, .form p button{
+    display: block;
+    box-sizing: border-box;
+    padding: 5px;
+}
+.form p input{
+    width: 100%;
+    border: 1px solid #a7b7b5;
+    outline: none;
+}
+.form p input:focus{
+    border: 1px solid #3ad2c4;
+    box-shadow: inset 0 0 3px 2px rgba(198, 255, 250, 0.72);
+}
+.form p button{
+    width: 30%;
+    margin: 0 auto;
+    flex: 1;
+}
+.form p button:first-child{
+    margin-right: 80px;
+}
+.form p button:last-child{
+    margin-left: 80px;
+    background-color: #90aab7;
+}
+#remark{
+    display: block;
+    width: 100%;
+    border: 1px solid #a7b7b5;
+    outline: none;
+    padding: 5px 2px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    font: 12px Arial;
+}
+
+#qrcode{
+    display: inline-block;
+    width:150px; height:150px; margin-bottom:10px;background-color: #e2ecec;position: relative;
+    text-align: center;
+}
+#qrcode img{
+    -webkit-transition: all 0.2s;
+}
+#qrcode img.zoom{
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 260px;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    background-color: #e2ecec;
+    padding: 8px;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,.25);
+}
+.zoom-in{
+    cursor: zoom-in;
+}
+.zoom-out{
+    cursor: zoom-out;
+}
+.qrcode.init:after{
+    content: "二维码生成区";
+    width: 100%;
+    height: 100%;
+    line-height: 150px;
+    color: #a7b7b5;
+    font-size: 16px;
+    white-space: nowrap;
+    text-align: center;
+    background-color: #e2ecec;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+}
+button{
+    display: inline-block;
+    width: 150px;
+    margin: 5px 0 0 0;
+    background-color: #3ad2c4;
+    border: none;
+    color: white;
+    padding: 5px 0;
+    outline: none;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+button:hover, button:active{
+    background-color: #53c7bd;
+}
+ul{
+    margin-top: 10px;
+    clear: both;
+}
+ul li{
+    display: block;
+    padding: 3px 30px 3px 2px;
+    width: 425px;
+    white-space: nowrap;
+    word-break: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border-bottom: 1px solid #a7b7b5;
+    cursor: pointer;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    position: relative;
+    box-sizing: border-box;
+    font: 12px Arial;
+}
+ul li:hover{
+    background-color: #e2ecec;
+}
+ul li:hover > i{
+    display: block;
+}
+ul li > i{
+    display: none;
+    width: 14px;
+    height: 14px;
+    font-style: normal;
+    background-color: #90aab7;
+    color: white;
+    text-align: center;
+    line-height: 14px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    opacity: 0;
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+ul li > i.edit{
+    right: 15px;
+}
+ul li > i:hover{
+    background-color: #53c7bd;
+}
+ul li:hover > i.edit{
+    -webkit-animation: animate-edit .15s ease-in 1 both;
+}
+ul li:hover > i.remove{
+    -webkit-animation: animate-remove .15s ease-in 1 both;
+    background-color: #e69c85;
+}
+.masker{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 99;
+}
+
+@-webkit-keyframes animate-edit{
+    from { top: -50%; opacity: 0; }
+    to { top: 50%; opacity: 1; }
+}
+@-webkit-keyframes animate-remove {
+    from { top: 100%; opacity: 0; }
+    to { top: 50%; opacity: 1; }
+}
