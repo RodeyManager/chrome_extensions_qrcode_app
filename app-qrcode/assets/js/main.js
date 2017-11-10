@@ -22,6 +22,7 @@
         function renderCache(){
             cacheList = JSON.parse(localStorage.getItem('_qrcodes_') || '[]');
             if(cacheList && cacheList.length && cacheList.length > 0){
+                // cacheList = cacheList.reverse();
                 let html = '', i = 0, l = cacheList.length;
                 for(; i < l; ++i){
                     html += comHTML(cacheList[i], i);
@@ -107,7 +108,7 @@
                 $current.find('span').text(newCache.remark + ' ' + newCache.text);
             }else{
                 // 添加
-                cacheList.push(newCache);
+                cacheList.unshift(newCache);
                 let html = $(comHTML(newCache, cacheList.length - 1));
                 $caches.prepend(html);
             }
@@ -127,6 +128,7 @@
             $remark.val($(this).attr('data-remark'));
             $content.val($(this).attr('title'));
             updateCode();
+            saveTempData();
             evt.stopPropagation();
         });
         $caches.delegate('i.edit', 'click', function(evt){
