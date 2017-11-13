@@ -52,6 +52,7 @@ div {
     flex: 1;
     margin: 5px 0;
     flex-direction: row;
+    cursor: pointer;
 }
 .btns button:first-child{
     margin-right: 5px;
@@ -59,6 +60,9 @@ div {
 .btns button:last-child{
     margin-left: 5px;
     background-color: #90aab7;
+}
+.btns button:last-child:hover{
+    opacity: .9;
 }
 .form{
     width: 100%;

@@ -52,9 +52,12 @@
             putPattern = false;
         }).on('input', function(evt){
             if(putPattern) return;
-            !evt.target.value
+            let value = evt.target.value;
+            !value
                 ? $qrcode.addClass('init')
-                : updateCode($(this).val());
+                : value.length <= 380
+                ? updateCode($(this).val())
+                : qrcode.clear();
             // 保存输入缓存
             saveTempData();
         });
@@ -66,15 +69,15 @@
         $qrcode.find('img').click(function(){
             if($(this).hasClass('zoom')){
                 $masker.hide();
-                $(this).removeClass('zoom');
+                $(this).removeClass('zoom zoom-out').addClass('zoom-in');
             }else{
                 $masker.show();
-                $(this).addClass('zoom zoom-out');
+                $(this).removeClass('zoom-in').addClass('zoom zoom-out');
             }
         });
         $masker.click(function(){
             $masker.hide();
-            $qrcode.find('img').removeClass('zoom');
+            $(this).removeClass('zoom zoom-out').addClass('zoom-in');
         });
 
         // 更换二维码内容
@@ -83,9 +86,7 @@
             qrcode.makeCode(value || $content.val());
             $qrcode.removeAttr('title');
             !$img && ($img = $qrcode.find('img'));
-            if(($img.attr('src') || '').length > 0){
-                $img.addClass('zoom-in');
-            }
+            $img.removeClass('zoom-out').addClass('zoom-in');
         }
 
         function getNewCache(){
